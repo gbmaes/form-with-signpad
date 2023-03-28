@@ -1,0 +1,156 @@
+<mvc:View displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:pad="opensap.myapp.controller.sign"
+    xmlns:signature_pad="signature_pad.docs.js"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    controllerName="opensap.myapp.controller.app">
+    <App id="app">
+        <pages>
+            <Page title="" showHeader="false">
+                <content>
+                    <f:SimpleForm width="100%" id="simpleFormChange" title="Reisekostenbericht"
+                        editable="true">
+                        <f:content>
+                            <l:VerticalLayout class="sapUiContentPadding" width="50%">
+                                <l:BlockLayoutCell width="3">
+                                    <!-- section1-->
+                                    <Label text="{i18n>layoutFormName}" />
+                                    <Input value="{address>/Name}" />
+                                    <Label text="{i18n>layoutFormReiseArt}" />
+                                    <VBox>
+                                        <RadioButtonGroup>
+                                            <RadioButton id="Checkbox1" text="Inland"
+                                                select="handleOrderSelected" />
+                                            <RadioButton id="Checkbox2" text="Ausland Land"
+                                                select="handleRejectSelected" />
+                                            <RadioButton id="Checkbox3" text="Beleg ohne Reise" />
+                                        </RadioButtonGroup>
+                                    </VBox>
+                                    <Label text="{i18n>layoutFormAbfahrtsort}" />
+                                    <Input value="{address>/Abfahrtsort}" />
+                                    <Label text="{i18n>layoutFormZwischenort}" />
+                                    <Input value="{address>/Zwischenort}" />
+                                    <Label text="{i18n>layoutFormZielort}" />
+                                    <Input value="{address>/Zielort}" />
+                                    <Label text="{i18n>layoutFormZweckDerReise}" />
+                                    <Input value="{address>/ZweckDerReise}" />
+                                    <Label text="{i18n>layoutFormVon}" labelFor="DTP1" />
+                                    <DateTimePicker id="DTP1" placeholder="Enter Date"
+                                        change="handleChange" />
+                                    <Label text="{i18n>layoutFormBis}" labelFor="DTP2" />
+                                    <DateTimePicker id="DTP2" placeholder="Enter Date"
+                                        change="handleChange" />
+                                    <Label text="{i18n>layoutFormKostenstelle}" />
+                                    <Input value="{address>/Kostenstelle}" />
+                                    <Label text="{i18n>layoutFormKostentraeger}"
+                                        labelFor="inputNumber" />
+                                    <Input id="inputNumber" type="Number"
+                                        placeholder="Enter a number" />
+                                    <VBox>
+                                        <Label text="{i18n>layoutFormOrtswechsel}" />
+                                        <CheckBox id="ch1" selected="false" activeHandling="true"
+                                            visible="true" select="checkDone" />
+                                    </VBox>
+                                    <!-- section2 (this must be shown/hide -->
+
+                                    <Text text="{address>/Ortswechsel}" />
+                                    <Label id="labelVon" visible="false" text="{i18n>layoutFormVon}"
+                                        labelFor="DTP3" />
+                                    <DateTimePicker id="DTP3" visible="false"
+                                        placeholder="Enter Date" change="handleChange" />
+                                    <Label id="labelBis" visible="false" text="{i18n>layoutFormBis}"
+                                        labelFor="DTP4" />
+                                    <DateTimePicker id="DTP4" visible="false"
+                                        placeholder="Enter Date" change="handleChange" />
+                                    <Label id="labelKost" visible="false"
+                                        text="{i18n>layoutFormKostentraeger}"
+                                        labelFor="inputNumber2" />
+                                    <Input id="inputNumber2" visible="false" type="Number"
+                                        placeholder="Enter a number" />
+                                    <Label class="" text="{i18n>layoutFormKilometer}"
+                                        labelFor="inputNumber3" />
+                                    <Input id="inputNumber3" type="Number"
+                                        placeholder="Enter a number" class="" />
+                                    <VBox>
+                                        <RadioButtonGroup>
+                                            <RadioButton id="Checkbox4" text="Firmen-PKW"
+                                                select="handleOrderSelected" />
+                                            <RadioButton id="Checkbox5" text="Privat-PKW"
+                                                select="handleRejectSelected" />
+                                        </RadioButtonGroup>
+                                    </VBox>
+                                    <Label text="{i18n>layoutMitfahrer}" />
+                                    <Input value="{address>/Mitfahrer}" />
+                                    <Label class="sapUiSmallMarginBottom"
+                                        text="{i18n>layoutUebernachtung}" />
+                                    <HBox>
+                                        <RadioButton id="Checkbox6" text="Hotel"
+                                            select="handleOrderSelected" />
+                                        <CheckBox id="Checkbox7" text="Ohne Frühstück"
+                                            select="handleRejectSelected" />
+                                    </HBox>
+                                    <VBox>
+                                        <RadioButton id="Checkbox8" text="Privat" />
+                                    </VBox>
+                                    <Label text="{i18n>layoutSachbezuege}" />
+                                    <VBox>
+                                        <CheckBox id="ch2" selected="false" activeHandling="true"
+                                            visible="true" select="checkDone2" />
+                                        <!-- when checkbox checked, display date/time-->
+
+                                        <HBox>
+                                            <DatePicker id="DTP6" visible="false"
+                                                placeholder="Enter Start Date" />
+                                            <DatePicker id="DTP7" visible="false"
+                                                placeholder="Enter End Date" change="handleChange"
+                                                class="sapUiSmallMarginBegin" />
+                                        </HBox>
+
+                                        <VBox items="{dateum>/}" id="idHBoxDate" visible="false">
+                                            <HBox>
+                                                <Text
+                                                    text="{path : 'dateum>date'
+                                                    , type: 'sap.ui.model.type.Date',
+                                                     formatOptions: { 
+                                                style: 'medium' 
+                                                     } }"
+                                                    class="sapUiSmallMarginEnd" />
+                                                <CheckBox
+                                                    text="Frühstück" />
+                                                <CheckBox text="Mitagg"
+                                                    select="handleRejectSelected" />
+                                                <CheckBox
+                                                    text="Abendessen" />
+                                            </HBox>
+                                        </VBox>
+
+                                    </VBox>
+                                    <Label class="" text="{i18n>layoutBarauslagen}"
+                                        labelFor="inputNumber4" />
+                                    <Input id="inputNumber4" type="Number"
+                                        placeholder="Enter a number" class="" />
+                                    <Label text="{i18n>layoutBemerkungen}" />
+                                    <Input value="{address>/Bemerkungen}" />
+                                    <VBox>
+                                        <core:HTML id="html" />
+                                    </VBox>
+                                    <Label text="{i18n>layoutDatum}" labelFor="DTP5" />
+                                    <DatePicker id="DT5" placeholder="Enter Date"
+                                        change="handleChange" class="" showFooter="true" />
+                                    <HBox>
+                                        <Button id="" text="Unterschrift " press="onSign" />
+                                       
+                                    </HBox>
+                                </l:BlockLayoutCell>
+                            </l:VerticalLayout>
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
