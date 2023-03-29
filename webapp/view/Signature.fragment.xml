@@ -1,9 +1,8 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
-xmlns:l="sap.ui.layout">
-    <Dialog title="Signature Pad" contentWidth="550px" contentHeight="300px">
+xmlns:l="sap.ui.layout" displayBlock="true">
+    <Dialog title="Unterschrift" contentWidth="550px" contentHeight="300px">
         <content>
-            <l:VerticalLayout id="idVLayoutSign" class="sapUiContentPadding"
-                width="100%">
+            <l:VerticalLayout id="idVLayoutSign" class="sapUiContentPadding stopScroll" width="100%">
                 <l:content>
 
                 </l:content>
@@ -16,5 +15,4 @@ xmlns:l="sap.ui.layout">
             <Button text="Cancel" type="Reject" press="onCancelSignDialog"></Button>
         </endButton>
     </Dialog>
-
 </core:FragmentDefinition>

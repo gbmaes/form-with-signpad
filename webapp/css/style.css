@@ -1,0 +1,7 @@
+.stopScroll {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 300px;
+    width: 100%;
+ }
+ 

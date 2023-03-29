@@ -2,12 +2,8 @@ sap.ui.define([
 	'sap/ui/core/mvc/Controller',
 	"sap/ui/model/json/JSONModel",
 ],
-
 	function (Controller, JSONModel) {
 		"use strict";
-
-
-
 		return Controller.extend("opensap.myapp.controller.main", {
 
 			checkDone: function (oEvent) {
@@ -70,7 +66,7 @@ sap.ui.define([
 				this.pDialog.then(function (oDialog) {
 					oDialog.open();
 					var oHTML = new sap.ui.core.HTML({
-						content: "<canvas id='Canvas' width='500' height='200'></canvas>",
+						content: "<canvas id='Canvas' width='550' height='300'></canvas>",
 						afterRendering: function () {
 							var canvas = document.getElementById("Canvas");
 							that.signaturePad = new SignaturePad(canvas);

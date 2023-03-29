@@ -18,8 +18,8 @@
                             <l:VerticalLayout class="sapUiContentPadding" width="50%">
                                 <l:BlockLayoutCell width="3">
                                     <!-- section1-->
-                                    <Label text="{i18n>layoutFormName}" />
-                                    <Input value="{address>/Name}" />
+                                    <Label  text="{i18n>layoutFormName}" />
+                                    <Input class="sapUiSmallMarginBottom" value="{address>/Name}" />
                                     <Label text="{i18n>layoutFormReiseArt}" />
                                     <VBox>
                                         <RadioButtonGroup>
@@ -56,7 +56,6 @@
                                             visible="true" select="checkDone" />
                                     </VBox>
                                     <!-- section2 (this must be shown/hide -->
-
                                     <Text text="{address>/Ortswechsel}" />
                                     <Label id="labelVon" visible="false" text="{i18n>layoutFormVon}"
                                         labelFor="DTP3" />
@@ -74,7 +73,7 @@
                                     <Label class="" text="{i18n>layoutFormKilometer}"
                                         labelFor="inputNumber3" />
                                     <Input id="inputNumber3" type="Number"
-                                        placeholder="Enter a number" class="" />
+                                        placeholder="Enter a number"/>
                                     <VBox>
                                         <RadioButtonGroup>
                                             <RadioButton id="Checkbox4" text="Firmen-PKW"
@@ -84,8 +83,8 @@
                                         </RadioButtonGroup>
                                     </VBox>
                                     <Label text="{i18n>layoutMitfahrer}" />
-                                    <Input value="{address>/Mitfahrer}" />
-                                    <Label class="sapUiSmallMarginBottom"
+                                    <Input value="{address>/Mitfahrer}" class="sapUiSmallMarginBottom" />
+                                    <Label 
                                         text="{i18n>layoutUebernachtung}" />
                                     <HBox>
                                         <RadioButton id="Checkbox6" text="Hotel"
@@ -101,7 +100,6 @@
                                         <CheckBox id="ch2" selected="false" activeHandling="true"
                                             visible="true" select="checkDone2" />
                                         <!-- when checkbox checked, display date/time-->
-
                                         <HBox>
                                             <DatePicker id="DTP6" visible="false"
                                                 placeholder="Enter Start Date" />
@@ -109,7 +107,6 @@
                                                 placeholder="Enter End Date" change="handleChange"
                                                 class="sapUiSmallMarginBegin" />
                                         </HBox>
-
                                         <VBox items="{dateum>/}" id="idHBoxDate" visible="false">
                                             <HBox>
                                                 <Text
@@ -121,20 +118,19 @@
                                                     class="sapUiSmallMarginEnd" />
                                                 <CheckBox
                                                     text="Frühstück" />
-                                                <CheckBox text="Mitagg"
+                                                <CheckBox text="Mittag"
                                                     select="handleRejectSelected" />
                                                 <CheckBox
                                                     text="Abendessen" />
                                             </HBox>
                                         </VBox>
-
                                     </VBox>
-                                    <Label class="" text="{i18n>layoutBarauslagen}"
-                                        labelFor="inputNumber4" />
-                                    <Input id="inputNumber4" type="Number"
-                                        placeholder="Enter a number" class="" />
+                                    <Label text="{i18n>layoutBarauslagen}"
+                                        labelFor="inputNumber4" class="sapUiSmallMarginTop" />
+                                    <Input class="sapUiSmallMarginBottom" id="inputNumber4" type="Number"
+                                        placeholder="Enter a number" />
                                     <Label text="{i18n>layoutBemerkungen}" />
-                                    <Input value="{address>/Bemerkungen}" />
+                                    <Input class="sapUiSmallMarginBottom" value="{address>/Bemerkungen}" />
                                     <VBox>
                                         <core:HTML id="html" />
                                     </VBox>
@@ -143,7 +139,6 @@
                                         change="handleChange" class="" showFooter="true" />
                                     <HBox>
                                         <Button id="" text="Unterschrift " press="onSign" />
-                                       
                                     </HBox>
                                 </l:BlockLayoutCell>
                             </l:VerticalLayout>

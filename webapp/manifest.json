@@ -47,6 +47,13 @@
 				"type": "sap.ui.model.json.JSONModel"
 			 }
 		},
+		"resources": {
+			"css": [
+			  {
+				"uri": "css/style.css"
+			  }
+			]
+		  },
 		"contentDensities": {
 			"compact": true,
 			"cozy": true
