@@ -137,8 +137,9 @@
                                     <Label text="{i18n>layoutDatum}" labelFor="DTP5" />
                                     <DatePicker id="DT5" placeholder="Enter Date"
                                         change="handleChange" class="" showFooter="true" />
-                                    <HBox>
-                                        <Button id="" text="Unterschrift " press="onSign" />
+                                    <HBox class="sapUiSmallMarginTop">
+                                        <Button class="sapUiMediumMarginEnd" text="Unterschrift " press="onSign" />
+                                        <Button class="sapUiMediumMarginEnd"  text="Senden " press="" />
                                     </HBox>
                                 </l:BlockLayoutCell>
                             </l:VerticalLayout>
